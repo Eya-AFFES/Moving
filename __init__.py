@@ -18,13 +18,13 @@ class SpeakmeterSkill(MycroftSkill):
         super(SpeakmeterSkill, self).__init__(name="SpeakmeterSkill")
         
     def initialize(self):
-        MV_F_intent = IntentBuilder("MVFIntent").require("moveKeyword")..build()
+        MV_F_intent = IntentBuilder("MVFIntent").require("moveKeyword").require("forKeyword").build()
         self.register_intent(MV_F_intent ,self.handle_MV_F_intent)
 
     def handle_MV_F_intent(self, message):
-        eya="required meters"
-        dist=str(message.data.get("Mydistance"))
-        T = ("1","one","2","two","3","three","4","four","5","five","6","six","7","seven","8","eight","9","nine")
+        number=int(message.data.get("number")
+        
+        """T = ("1","one","2","two","3","three","4","four","5","five","6","six","7","seven","8","eight","9","nine")
         if (T[0] in dist) or (T[1] in dist):
           msg="1"
         elif (T[2] in dist) or (T[3] in dist):
@@ -44,9 +44,9 @@ class SpeakmeterSkill(MycroftSkill):
         elif (T[16] in dist) or (T[17] in dist):
           msg="9" 
         else: 
-          msg="0"  
-        self.speak_dialog("MV.F")
-        ser00.write(bytes("MF"+msg+"\n", 'utf-8'))
+          msg="0"  """
+        self.speak_dialog("MV.F", data={'number':number})
+        ser00.write(bytes("MF"+number+"\n", 'utf-8'))
 
     def stop(self):
         pass

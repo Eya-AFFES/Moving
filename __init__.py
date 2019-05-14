@@ -2,7 +2,6 @@
 
 import subprocess
 from os.path import dirname, join
-
 from adapt.intent import IntentBuilder
 from mycroft import MycroftSkill, intent_handler
 from mycroft.util.log import getLogger
@@ -23,7 +22,6 @@ class SpeakmeterSkill(MycroftSkill):
 
     def handle_MV_F_intent(self, message):
         num=message.data.get("number")
-        
         """T = ("1","one","2","two","3","three","4","four","5","five","6","six","7","seven","8","eight","9","nine")
         if (T[0] in dist) or (T[1] in dist):
           msg="1"
@@ -46,7 +44,8 @@ class SpeakmeterSkill(MycroftSkill):
         else: 
           msg="0"  """
         self.speak_dialog("MV.F")
-        ser00.write(bytes("MF"+num+"\n", 'utf-8'))
+        ser00.write(bytes(num +"\n", 'utf-8'))
+        #ser00.write(bytes("MF"+num+"\n", 'utf-8'))
 
     def stop(self):
         pass

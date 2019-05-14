@@ -22,7 +22,7 @@ class SpeakmeterSkill(MycroftSkill):
         self.register_intent(MV_F_intent ,self.handle_MV_F_intent)
 
     def handle_MV_F_intent(self, message):
-        number=int(message.data.get("number")
+        num=int(message.data.get("number")
         
         """T = ("1","one","2","two","3","three","4","four","5","five","6","six","7","seven","8","eight","9","nine")
         if (T[0] in dist) or (T[1] in dist):
@@ -45,8 +45,8 @@ class SpeakmeterSkill(MycroftSkill):
           msg="9" 
         else: 
           msg="0"  """
-        self.speak_dialog("MV.F", data={'number':number})
-        ser00.write(bytes("MF"+number+"\n", 'utf-8'))
+        self.speak_dialog("MV.F", data={'num':num})
+        ser00.write(bytes("MF"+num+"\n", 'utf-8'))
 
     def stop(self):
         pass

@@ -1,1 +1,1 @@
-(Move forward for | Move the car forward for | Move the car for | Go forward for)(?P<Mydistance>.*)
+(Move forward for | Go forward for | Move the car forward for)(?P<Mydistance>.*)

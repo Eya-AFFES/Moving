@@ -1,1 +1,3 @@
-(Move forward for | Go for | Move for)(?P<Mydistance>.*)
+Move forward for(?P<Mydistance>.*)
+Go for (?P<Mydistance>.*)  
+Move for (?P<Mydistance>.*)
